@@ -1,2 +1,3 @@
-# mini-admin-dashboard-table
-mini-admin-dashboard-table
+# Mini Dashboard Actions
+
+1. React Project
