@@ -1,0 +1,45 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 14px;
+  /* color: #333; */
+  margin-bottom: 4px;
+}
+
+.input {
+  font:
+    15px/24px 'Muli',
+    Arial,
+    sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+.effect {
+  border: 0;
+  padding: 7px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.effect ~ .focus-border {
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #4caf50;
+  transition: 0.4s;
+}
+.effect:focus ~ .focus-border {
+  width: 100%;
+  transition: 0.4s;
+  left: 0;
+}

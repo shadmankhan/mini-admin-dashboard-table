@@ -1,0 +1,56 @@
+.button {
+  cursor: pointer;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  border: none;
+  color: white;
+  font-weight: bold;
+  /* width: 100%; */
+}
+
+.button-md {
+  font-size: 16px;
+}
+
+.button-sm {
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.button-lg {
+  font-size: 18px;
+  padding: 16px 32px;
+}
+
+.blue {
+  background-color: #2196f3;
+}
+
+.green {
+  background-color: #4caf50;
+}
+
+.red {
+  background-color: #f44336;
+}
+
+/* Add more color classes as needed */
+
+.button:hover {
+  background-color: #1976d2;
+}
+
+.button:active {
+  background-color: #0d47a1;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+.progress {
+  cursor: progress;
+}
