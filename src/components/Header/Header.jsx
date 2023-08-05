@@ -7,15 +7,12 @@ import { SNACKBAR_TYPE } from '../../utils/constants';
 const Header = ({ loggedInUser, signInAction, handleSnackbar }) => {
   const signOutAction = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    console.log({ error });
     if (!error) {
-      console.log('Success');
       handleSnackbar({
         type: SNACKBAR_TYPE.success,
         message: 'Signed Out Successfully!'
       });
     } else {
-      console.log('Error');
       handleSnackbar({
         type: SNACKBAR_TYPE.fail,
         message: 'Request failed, please try again!'
@@ -40,9 +37,11 @@ const Header = ({ loggedInUser, signInAction, handleSnackbar }) => {
       </div>
       <div className="header__division">
         <nav>
-          <Button onClick={handleLogInOut} color="red">
-            {loggedInUser ? 'Sign Out' : 'Sign In'}
-          </Button>
+          {!!loggedInUser && (
+            <Button onClick={handleLogInOut} color="red">
+              {loggedInUser ? 'Sign Out' : 'Sign In'}
+            </Button>
+          )}
         </nav>
       </div>
     </header>

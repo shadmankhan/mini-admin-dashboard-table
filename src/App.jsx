@@ -25,6 +25,21 @@ const App = () => {
           message: event === 'INITIAL_SESSION' ? 'Already Signed In!' : 'Signed In Successfully!'
         });
       }
+
+      const errorHash =
+        window.location.hash &&
+        window.location.hash
+          .substring(1)
+          .split('&')
+          .find(e => e.startsWith('error_description'))
+          ?.split?.('=')?.[1]
+          ?.replaceAll?.('+', ' ');
+
+      handleSnackbar({
+        type: SNACKBAR_TYPE.fail,
+        message: errorHash
+      });
+
       if (event === 'SIGNED_OUT' || !session) {
         setLoggedInUser(null);
       }
