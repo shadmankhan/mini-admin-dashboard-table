@@ -17,7 +17,7 @@ const SignIn = () => {
       const { data, error } = await supabaseClient.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: window.location.pathname
+          emailRedirectTo: window.location.href
         }
       });
 
@@ -57,7 +57,7 @@ const SignIn = () => {
           }}
         >
           {isSubmitted ? (
-            <h2 style={{ textAlign: 'center', color: "#000" }}>Please check {email} for login link</h2>
+            <h2 style={{ textAlign: 'center', color: '#000' }}>Please check {email} for login link</h2>
           ) : (
             <form onSubmit={submitHandler}>
               <div style={{ marginBottom: '16px' }}>
@@ -72,7 +72,7 @@ const SignIn = () => {
                   onChange={changeHandler}
                 />
               </div>
-              <Button type="submit" isLoading={isLoading} color="green">
+              <Button type="submit" disabled={isLoading} isLoading={isLoading} color="green">
                 Sign in
               </Button>
             </form>
