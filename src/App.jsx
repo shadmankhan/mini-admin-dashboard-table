@@ -9,6 +9,7 @@ import Snackbar from './components/common/Snackbar/Snackbar';
 import { supabaseClient } from './services/client';
 import Header from './components/Header/Header';
 import { SNACKBAR_TYPE } from './utils/constants';
+import Members from './components/Members/Members';
 
 const App = () => {
   const snackbarRef = useRef(null);
@@ -72,7 +73,8 @@ const App = () => {
   return (
     <>
       <Header loggedInUser={loggedInUser} signInAction={signInAction} handleSnackbar={handleSnackbar} />
-      {loggedInUser ? <Counter /> : <SignIn />}
+      {loggedInUser ? <Members handleSnackbar={handleSnackbar} loggedInUser={loggedInUser} /> : <SignIn />}
+      {/* <Members handleSnackbar={handleSnackbar} loggedInUser={loggedInUser} /> */}
       <Snackbar ref={snackbarRef} />
     </>
   );

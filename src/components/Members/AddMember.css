@@ -1,0 +1,54 @@
+.addMember_root {
+  width: 500px;
+}
+
+.addMember__form {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.addMember__btnField {
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: flex-end;
+}
+
+.addMember__heading {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.addMember__fieldName {
+  font-weight: 900;
+}
+
+.addMember__field {
+  width: 485px;
+  border: 1px solid silver;
+  line-height: 1.8rem;
+  font-size: medium;
+}
+
+.addMember_cancelBtn {
+  font-size: 14px;
+  padding: 5px 10px;
+
+  border-radius: 25px;
+  border: 1px solid #4B74FF;
+  color: #4B74FF;
+  background-color: #fff;
+}
+
+.addMember_saveBtn {
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 25px;
+  border: 1px solid #4B74FF;
+  
+  background-color: #4B74FF;
+  color: #fff;
+}

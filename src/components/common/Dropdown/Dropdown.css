@@ -1,0 +1,39 @@
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  padding: 8px 12px;
+  /* background-color: #f0f0f0; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px); /* Position the dropdown menu below the toggle */
+  left: 0;
+  z-index: 10;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dropdown-menu label {
+  display: block;
+  margin: 5px 0;
+}
+
+/* Optional: Styling for checked checkboxes */
+.dropdown-menu input[type='checkbox'] {
+  margin-right: 8px;
+}
