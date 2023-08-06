@@ -1,8 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './components/counter/counterSlice'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import membersSlice from './components/Members/membersSlice';
 
-export default configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-})
+import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from 'redux-persist';
+
+const persistConfig = {
+  key: 'root',
+  storage
+};
+
+const persistedReducer = persistReducer(persistConfig, membersSlice);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
+    serializableCheck: false
+  })
+});
+
+export const persistor = persistStore(store);
