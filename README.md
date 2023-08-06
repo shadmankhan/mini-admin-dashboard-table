@@ -6,6 +6,7 @@
 ![@supabase/supabase-js](https://img.shields.io/badge/@supabase/supabasejs-v2.31.0-yellow.svg)
 ![@reduxjs/toolkit](https://img.shields.io/badge/@reduxjs/toolkit-v1.9.5-brown.svg)
 
+Deployed App - https://miniboard.netlify.app
 
 - React project with Supabase serverless backend
 - Users can log in via Magic Link by using their own email address!
