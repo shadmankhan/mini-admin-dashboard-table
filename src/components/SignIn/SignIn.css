@@ -1,0 +1,39 @@
+.signIn__root {
+  min-height: 100vh;
+  padding: 12px;
+}
+
+.signIn__root_div {
+  margin: auto;
+}
+
+.signIn__title {
+  text-align: center;
+  margin: 6px;
+}
+
+.signIn__errorContainer {
+  margin-bottom: 6px;
+  background-color: 'red';
+  padding: 4px;
+}
+
+.signIn__errorContainer_p {
+  text-align: center;
+}
+
+.signIn__formContainer {
+  padding: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.signIn__isSubmit {
+  text-align: center;
+  color: #000;
+}
+
+.signIn__form_div {
+  margin-bottom: 16px;
+}

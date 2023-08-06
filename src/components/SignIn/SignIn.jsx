@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { supabaseClient } from '../../services/client';
 import Input from '../common/Input/Input';
 import Button from '../common/Button/Button';
+import './SignIn.css';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -21,8 +22,6 @@ const SignIn = () => {
         }
       });
 
-      console.log({ data });
-
       if (error) {
         setError(error.message);
       } else {
@@ -40,27 +39,20 @@ const SignIn = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '12px' }}>
-      <div style={{ maxWidth: 'md', margin: 'auto' }}>
-        <h1 style={{ textAlign: 'center', margin: '6px' }}>Welcome to the App</h1>
+    <div className="signIn__root">
+      <div className="signIn__root_div">
+        <h1 className="signIn__title">Welcome to the App</h1>
         {error && (
-          <div style={{ marginBottom: '6px', backgroundColor: 'red', padding: '4px' }}>
-            <p style={{ textAlign: 'center' }}>{error}</p>
+          <div className="signIn__errorContainer">
+            <p className="signIn__errorContainer_p">{error}</p>
           </div>
         )}
-        <div
-          style={{
-            padding: '8px',
-            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-            borderRadius: '8px',
-            backgroundColor: 'white'
-          }}
-        >
+        <div className="signIn__formContainer">
           {isSubmitted ? (
-            <h2 style={{ textAlign: 'center', color: '#000' }}>Please check {email} for login link</h2>
+            <h2 className="signIn__isSubmit">Please check {email} for login link</h2>
           ) : (
             <form onSubmit={submitHandler}>
-              <div style={{ marginBottom: '16px' }}>
+              <div className="signIn__form_div">
                 <Input
                   name="email"
                   type="email"

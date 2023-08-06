@@ -3,7 +3,7 @@ import './Members.css';
 import Button from '../common/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addMembers, dumpMembers, updateMember, deleteMember } from './membersSlice';
+import { addMembers, dumpMembers, deleteMember } from './membersSlice';
 import { supabaseClient } from '../../services/client';
 import Dropdown from '../common/Dropdown/Dropdown';
 import Modal from '../common/Modal/Modal';
@@ -47,17 +47,10 @@ const Members = ({ handleSnackbar, loggedInUser = {} }) => {
 
   const listAllMembers = async () => {
     const { data, error } = await supabaseClient.from('members').select('*');
-    console.log({ data, error }, 'all');
     if (!error) {
       dispatch(dumpMembers(data));
     }
   };
-
-  // for future
-  // const handleUpdateMember = async member => {
-  //   const res = await supabaseClient.from('members').update(member).eq('id', member.id).select('*').single();
-  //   console.log({ res }, 'update')
-  // }
 
   const handleDeleteMember = async id => {
     const { error } = await supabaseClient.from('members').delete().eq('id', id);
@@ -84,7 +77,7 @@ const Members = ({ handleSnackbar, loggedInUser = {} }) => {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based, so we add 1
     const year = date.getFullYear().toString();
-  
+
     return `${day}/${month}/${year}`;
   }
 

@@ -3,13 +3,12 @@ import './App.css';
 
 // components
 import SignIn from './components/SignIn/SignIn';
-import Counter from './components/counter/Counter';
 import Snackbar from './components/common/Snackbar/Snackbar';
+import Header from './components/Header/Header';
+import Members from './components/Members/Members';
 
 import { supabaseClient } from './services/client';
-import Header from './components/Header/Header';
 import { SNACKBAR_TYPE } from './utils/constants';
-import Members from './components/Members/Members';
 
 const App = () => {
   const snackbarRef = useRef(null);
@@ -18,9 +17,8 @@ const App = () => {
   useEffect(() => {
     const { data: authListener } = supabaseClient.auth.onAuthStateChange((event, session) => {
       try {
-        console.log({ event, session });
-        sessionStorage.setItem('session', JSON.stringify(session));
         if (session) {
+          sessionStorage.setItem('session', JSON.stringify(session));
           setLoggedInUser(session);
           handleSnackbar({
             type: SNACKBAR_TYPE.success,
@@ -74,7 +72,6 @@ const App = () => {
     <>
       <Header loggedInUser={loggedInUser} signInAction={signInAction} handleSnackbar={handleSnackbar} />
       {loggedInUser ? <Members handleSnackbar={handleSnackbar} loggedInUser={loggedInUser} /> : <SignIn />}
-      {/* <Members handleSnackbar={handleSnackbar} loggedInUser={loggedInUser} /> */}
       <Snackbar ref={snackbarRef} />
     </>
   );
