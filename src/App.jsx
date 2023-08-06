@@ -16,32 +16,40 @@ const App = () => {
 
   useEffect(() => {
     const { data: authListener } = supabaseClient.auth.onAuthStateChange((event, session) => {
-      console.log({ event, session });
-      sessionStorage.setItem('session', JSON.stringify(session));
-      if (session) {
-        setLoggedInUser(session);
+      try {
+        console.log({ event, session });
+        sessionStorage.setItem('session', JSON.stringify(session));
+        if (session) {
+          setLoggedInUser(session);
+          handleSnackbar({
+            type: SNACKBAR_TYPE.success,
+            message: event === 'INITIAL_SESSION' ? 'Already Signed In!' : 'Signed In Successfully!'
+          });
+        }
+
+        const errorHash = window.location.hash
+          ? window.location.hash
+              .substring(1)
+              .split('&')
+              .find(e => e.startsWith('error_description'))
+              ?.split?.('=')?.[1]
+              ?.replaceAll?.('+', ' ')
+          : '';
+
+        errorHash &&
+          handleSnackbar({
+            type: SNACKBAR_TYPE.fail,
+            message: errorHash
+          });
+
+        if (event === 'SIGNED_OUT' || !session) {
+          setLoggedInUser(null);
+        }
+      } catch (error) {
         handleSnackbar({
-          type: SNACKBAR_TYPE.success,
-          message: event === 'INITIAL_SESSION' ? 'Already Signed In!' : 'Signed In Successfully!'
+          type: SNACKBAR_TYPE.fail,
+          message: error?.message || 'Something went wrong!'
         });
-      }
-
-      const errorHash =
-        window.location.hash &&
-        window.location.hash
-          .substring(1)
-          .split('&')
-          .find(e => e.startsWith('error_description'))
-          ?.split?.('=')?.[1]
-          ?.replaceAll?.('+', ' ');
-
-      handleSnackbar({
-        type: SNACKBAR_TYPE.fail,
-        message: errorHash
-      });
-
-      if (event === 'SIGNED_OUT' || !session) {
-        setLoggedInUser(null);
       }
     });
 
