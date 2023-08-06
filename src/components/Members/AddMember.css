@@ -33,6 +33,7 @@
 }
 
 .addMember_cancelBtn {
+  cursor: pointer;
   font-size: 14px;
   padding: 5px 10px;
 
@@ -42,7 +43,12 @@
   background-color: #fff;
 }
 
+.addMember_cancelBtn:hover {
+  background-color: #e5f4fd;
+}
+
 .addMember_saveBtn {
+  cursor: pointer;
   font-size: 14px;
   padding: 5px 10px;
   margin-left: 10px;
@@ -51,4 +57,8 @@
   
   background-color: #4B74FF;
   color: #fff;
+}
+
+.addMember_saveBtn:hover {
+  background-color: #8aa5fd;
 }

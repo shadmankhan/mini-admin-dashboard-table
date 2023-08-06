@@ -19,10 +19,8 @@ const AddMember = ({ onSubmit, onCancel }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    // You can perform form submission logic here, e.g., send data to the server
-    console.log({ formData });
     await onSubmit(formData);
-    onCancel();
+    onCancel(); // close modal after api
   };
 
   return (
@@ -79,7 +77,7 @@ const AddMember = ({ onSubmit, onCancel }) => {
               required
             />
           </div>
-          <div className='addMember__btnField'>
+          <div className="addMember__btnField">
             <button className="addMember_cancelBtn" type="reset" onClick={onCancel}>
               Cancel
             </button>
